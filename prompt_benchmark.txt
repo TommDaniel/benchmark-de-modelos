@@ -1,40 +1,31 @@
-================================================================================
-PROMPT DE BENCHMARK — ANÁLISE DE TICKETS E FEEDBACKS (SaaS B2B)
-================================================================================
+PROMPT DE BENCHMARK: ANÁLISE DE TICKETS E FEEDBACKS (SaaS B2B)
 
-Modelos: DeepSeek V4 Flash | Kimi K2.7 | Kimi K3
-Plataforma: OpenCode
-Volume: 5 tickets × 3 modelos × 3 execuções = 45 execuções
+Modelos: DeepSeek V4 Flash, Kimi K2.7 e Kimi K3.
+Plataforma: OpenCode.
+Volume: 5 tickets multiplicados por 3 modelos e por 3 execuções, totalizando 45 execuções.
 
-COMO USAR:
-1. Para cada execução, copie o PROMPT PADRÃO abaixo e substitua o campo
-   [TICKET_DO_CLIENTE] pelo texto de um dos 5 tickets (seção seguinte).
-2. Execute cada ticket TRÊS VEZES em cada um dos 3 modelos, na mesma ordem
-   (Ticket 1 → Ticket 5), preferencialmente com temperatura zero ou o menor
-   valor disponível.
-3. Para cada execução, registre: resposta bruta, tokens de entrada e saída,
-   latência (ms), e eventuais timeouts ou erros técnicos.
-4. NÃO envie ao modelo o gabarito de referência (seção final deste arquivo).
+COMO USAR
 
-================================================================================
+Para cada execução, copie o PROMPT PADRÃO abaixo e substitua o campo [TICKET_DO_CLIENTE] pelo texto de um dos 5 tickets listados na seção seguinte.
+
+Execute cada ticket três vezes em cada um dos 3 modelos, na mesma ordem, do Ticket 1 ao Ticket 5, preferencialmente com temperatura zero ou o menor valor disponível.
+
+Para cada execução, registre a resposta bruta, os tokens de entrada e saída, a latência em milissegundos, e eventuais timeouts ou erros técnicos.
+
+Não envie ao modelo o gabarito de referência, que está na seção final deste arquivo.
+
 PROMPT PADRÃO (copiar para todas as execuções)
-================================================================================
 
 Você é um analista de suporte de um produto SaaS B2B.
 
-Analise EXCLUSIVAMENTE o conteúdo do ticket do cliente abaixo e produza uma
-análise estruturada.
+Analise EXCLUSIVAMENTE o conteúdo do ticket do cliente abaixo e produza uma análise estruturada.
 
 Regras obrigatórias:
-1. Baseie-se apenas nas informações presentes no ticket. NÃO invente fatos,
-   valores, datas, funcionalidades ou contextos que não estejam no texto.
-2. Responda SOMENTE com um JSON válido. Não inclua nenhum texto antes ou
-   depois do JSON (sem explicações, sem markdown, sem blocos de código).
+1. Baseie-se apenas nas informações presentes no ticket. NÃO invente fatos, valores, datas, funcionalidades ou contextos que não estejam no texto.
+2. Responda SOMENTE com um JSON válido. Não inclua nenhum texto antes ou depois do JSON (sem explicações, sem markdown, sem blocos de código).
 3. Utilize somente os valores permitidos em cada campo, conforme a lista abaixo.
 4. Mantenha a justificativa curta (no máximo 2 frases) e baseada no texto.
-5. Avalie com atenção a urgência e o risco de churn: sinais de frustração
-   intensa, ameaça de cancelamento, indisponibilidade ou impacto financeiro
-   devem elevar esses campos.
+5. Avalie com atenção a urgência e o risco de churn: sinais de frustração intensa, ameaça de cancelamento, indisponibilidade ou impacto financeiro devem elevar esses campos.
 
 Estrutura obrigatória da resposta:
 {
@@ -51,79 +42,38 @@ Estrutura obrigatória da resposta:
 TICKET DO CLIENTE:
 [TICKET_DO_CLIENTE]
 
-================================================================================
 TICKETS (substituir em [TICKET_DO_CLIENTE])
-================================================================================
 
---------------------------------------------------------------------------------
-TICKET 1 (caso comum — problema técnico)
---------------------------------------------------------------------------------
-Bom dia. Desde ontem, sempre que tento exportar o relatório mensal em PDF o
-sistema mostra a mensagem "Erro 500 — tente novamente mais tarde". Já limpei o
-cache, testei em outro navegador e com outro usuário da minha equipe, e o erro
-continua. Preciso desse relatório para uma reunião na sexta-feira. Conseguem
-verificar?
+TICKET 1: caso comum de problema técnico.
 
---------------------------------------------------------------------------------
-TICKET 2 (caso comum — cobrança)
---------------------------------------------------------------------------------
-Olá. Na fatura deste mês veio uma cobrança duplicada do plano anual: aparecem
-duas linhas com o mesmo valor, debitadas no mesmo dia no cartão da empresa.
-Preciso do estorno de uma das cobranças e de uma confirmação por escrito para
-repassar ao nosso financeiro. Obrigado.
+Bom dia. Desde ontem, sempre que tento exportar o relatório mensal em PDF o sistema mostra a mensagem "Erro 500 — tente novamente mais tarde". Já limpei o cache, testei em outro navegador e com outro usuário da minha equipe, e o erro continua. Preciso desse relatório para uma reunião na sexta-feira. Conseguem verificar?
 
---------------------------------------------------------------------------------
-TICKET 3 (caso comum — integração)
---------------------------------------------------------------------------------
-Pessoal, estou tentando configurar o webhook para enviar os eventos de novos
-cadastros para o nosso CRM, mas não encontro na documentação o formato exato
-do payload nem como validar a assinatura das requisições. Podem me indicar o
-passo a passo ou um exemplo de configuração?
+TICKET 2: caso comum de cobrança.
 
---------------------------------------------------------------------------------
-TICKET 4 (caso ambíguo — usabilidade com sinal de insatisfação)
---------------------------------------------------------------------------------
-A nova tela de filtros ficou confusa. O que antes resolvíamos com dois cliques
-agora exige abrir vários menus, e a equipe inteira está reclamando que perdeu
-produtividade depois da atualização. Gostamos muito da ferramenta, mas se essa
-questão de usabilidade não for revista, vamos precisar avaliar outras opções
-na renovação do contrato.
+Olá. Na fatura deste mês veio uma cobrança duplicada do plano anual: aparecem duas linhas com o mesmo valor, debitadas no mesmo dia no cartão da empresa. Preciso do estorno de uma das cobranças e de uma confirmação por escrito para repassar ao nosso financeiro. Obrigado.
 
---------------------------------------------------------------------------------
-TICKET 5 (caso difícil/crítico — indisponibilidade com ameaça de cancelamento)
---------------------------------------------------------------------------------
-O sistema ficou fora do ar por quase 3 horas hoje, bem no dia de fechamento
-da nossa operação. Perdemos vendas e tivemos equipe parada. É a segunda vez
-que isso acontece neste trimestre e até agora não recebemos nenhuma explicação
-da primeira ocorrência. Quero uma reunião com alguém responsável ainda hoje e
-um plano concreto de estabilidade. Caso contrário, vou cancelar o contrato e
-solicitar o reembolso proporcional.
+TICKET 3: caso comum de integração.
 
-================================================================================
-GABARITO DE REFERÊNCIA — NÃO ENVIAR AO MODELO
-(usar apenas para conferir as respostas e calcular a acurácia)
-================================================================================
+Pessoal, estou tentando configurar o webhook para enviar os eventos de novos cadastros para o nosso CRM, mas não encontro na documentação o formato exato do payload nem como validar a assinatura das requisições. Podem me indicar o passo a passo ou um exemplo de configuração?
 
-TICKET 1:
-  categoria: problema_tecnico | sentimento: neutro | urgencia: media
-  risco_churn: baixo
+TICKET 4: caso ambíguo de usabilidade com sinal de insatisfação.
 
-TICKET 2:
-  categoria: cobranca | sentimento: neutro | urgencia: media
-  risco_churn: baixo
+A nova tela de filtros ficou confusa. O que antes resolvíamos com dois cliques agora exige abrir vários menus, e a equipe inteira está reclamando que perdeu produtividade depois da atualização. Gostamos muito da ferramenta, mas se essa questão de usabilidade não for revista, vamos precisar avaliar outras opções na renovação do contrato.
 
-TICKET 3:
-  categoria: integracao | sentimento: neutro | urgencia: baixa
-  risco_churn: baixo
+TICKET 5: caso difícil ou crítico de indisponibilidade com ameaça de cancelamento.
 
-TICKET 4:
-  categoria: usabilidade | sentimento: negativo | urgencia: media
-  risco_churn: medio
-  (ambíguo: a menção a "avaliar outras opções" pode levar alguns modelos a
-  classificar como cancelamento ou urgencia alta — registrar a divergência)
+O sistema ficou fora do ar por quase 3 horas hoje, bem no dia de fechamento da nossa operação. Perdemos vendas e tivemos equipe parada. É a segunda vez que isso acontece neste trimestre e até agora não recebemos nenhuma explicação da primeira ocorrência. Quero uma reunião com alguém responsável ainda hoje e um plano concreto de estabilidade. Caso contrário, vou cancelar o contrato e solicitar o reembolso proporcional.
 
-TICKET 5:
-  categoria: problema_tecnico ou cancelamento | sentimento: negativo
-  urgencia: critica | risco_churn: alto
-  (aceitar ambas as categorias como corretas, desde que urgência crítica e
-  risco de churn alto sejam sinalizados)
+GABARITO DE REFERÊNCIA: NÃO ENVIAR AO MODELO
+
+O gabarito deve ser usado apenas para conferir as respostas e calcular a acurácia.
+
+Ticket 1: categoria problema_tecnico, sentimento neutro, urgencia media, risco_churn baixo.
+
+Ticket 2: categoria cobranca, sentimento neutro, urgencia media, risco_churn baixo.
+
+Ticket 3: categoria integracao, sentimento neutro, urgencia baixa, risco_churn baixo.
+
+Ticket 4: categoria usabilidade, sentimento negativo, urgencia media, risco_churn medio. Este caso é ambíguo, pois a menção a avaliar outras opções pode levar alguns modelos a classificar como cancelamento ou urgencia alta. A divergência deve ser registrada.
+
+Ticket 5: categoria problema_tecnico ou cancelamento, sentimento negativo, urgencia critica, risco_churn alto. Ambas as categorias devem ser aceitas como corretas, desde que urgência crítica e risco de churn alto sejam sinalizados.
